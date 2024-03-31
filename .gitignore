@@ -1,5 +1,6 @@
 src/.env
 venv/
 src/openai_test.py
+src/test.py
 src/test_script.ipynb
 __pycache__/
