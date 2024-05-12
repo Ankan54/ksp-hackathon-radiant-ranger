@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify, render_template
-from process_data import process_data
+#from process_data import process_data
+from gemini_utils import gemini_process_post
 import time
 
 app = Flask(__name__)
@@ -26,15 +27,16 @@ def process_input():
                         'severity': output_dict['severity'],
                         'hashtags': output_dict['hashtags']})
     else:
-        output_dict = process_data(text)
+        #output_dict = process_data(text)
+        output_dict = gemini_process_post(text)
 
         if output_dict != False:
             return jsonify({'status':200,
-                            'sentiment': output_dict['sentiment'].value,
-                            'event_type': output_dict['event_type'].value,
-                            'event_place': output_dict['event_place'],
-                            'severity': output_dict['severity'].value,
-                            'hashtags': output_dict['hashtags']})
+                            'sentiment': output_dict.sentiment,
+                            'event_type': output_dict.event_type,
+                            'event_place': output_dict.event_place,
+                            'severity': output_dict.severity,
+                            'hashtags': ",".join(output_dict.hashtags)})
         else:
             return False
 
