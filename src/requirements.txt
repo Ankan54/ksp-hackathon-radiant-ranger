@@ -55,7 +55,7 @@ jupyter-core==5.7.2
 kiwisolver==1.4.5
 langchain==0.1.12
 langchain-community==0.0.28
-langchain-core==0.1.31
+langchain-core>=0.1.35
 langchain-openai==0.0.8
 langchain-text-splitters==0.0.1
 langsmith==0.1.24
@@ -76,7 +76,7 @@ orjson==3.9.15
 packaging==23.2
 pandas==2.2.1
 parso==0.8.3
-pillow==10.2.0
+pillow>=10.3.0
 platformdirs==4.2.0
 prompt-toolkit==3.0.43
 protobuf==4.25.3
